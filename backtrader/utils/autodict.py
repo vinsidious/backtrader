@@ -57,8 +57,8 @@ class AutoDict(dict):
         self._closed = False
 
     def __missing__(self, key):
-        if self._closed:
-            raise KeyError
+        # if self._closed:
+            # raise KeyError
 
         value = self[key] = AutoDict()
         return value
@@ -90,8 +90,8 @@ class AutoOrderedDict(OrderedDict):
         self._closed = False
 
     def __missing__(self, key):
-        if self._closed:
-            raise KeyError
+        # if self._closed:
+        #     raise KeyError
 
         # value = self[key] = type(self)()
         value = self[key] = AutoOrderedDict()
